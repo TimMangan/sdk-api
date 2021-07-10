@@ -56,7 +56,11 @@ A path relative to the image root where the new file or directory will be create
 ### -param fileMetadata
 
 Type: **CIMFS_FILE_METADATA\***
-Pointer to a structure that contains the metadata for the new file or directory. For files, a size is provided in the metadata. The file may be written up to this size. Once the file is created its size cannot be extended. To extend the file it must be re-created. Ranges in the file that are never written will be read as zero.
+Pointer to a structure that contains the metadata for the new file or directory. 
+
+For files, this structure should be populated before calling.  A size is provided in the metadata. The file may be written up to this size. Once the file is created its size cannot be extended. To extend the file it must be re-created. Ranges in the file that are never written will be read as zero.
+
+For folders, this structure should be filled with zeros before calling.
 
 ### -param cimStreamHandle
 
